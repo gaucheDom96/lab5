@@ -3,6 +3,21 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+// add interactivity 
+	$(".click-listener").click(function(event){	
+	// prevent you from scrolling to teh top 
+	event.preventDefault(); 
+	var name = $(this).text().trim();
+	//grab a name from html
+	//anangram the name 
+	var newName = anagrammedName(name);
+	console.log(name);
+	console.log(newName); 
+	console.log($(this)[0].childNodes[0]); 
+	//set the name 
+	$(this).first().text(newName);
+	}); 
+	
 })
 
 /*
@@ -11,6 +26,7 @@ $(document).ready(function() {
 function initializePage() {
 	console.log("Javascript connected!");
 }
+
 
 function anagrammedName(name) {
 	// Thanks, Internet Anagram Server!
